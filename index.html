@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Cinzel:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+ 
+    <header class="fixed">
+        <nav class="navbar">
+          <div class="logo">Addx</div>
+          <ul class="nav-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="" ><button class="LogOutBtn">logout</button></a></li>
+          </ul>
+        </nav>
+      </header>
+
+
+    <div class="main-div">
+        <div class="todo-apps">
+            <h1 class="h1-text">To-Do Apps</h1>
+            <div class="row">
+                <input class="input-box" type="text" placeholder="  Enter your text">
+                <button class="submitBtn">Add submit</button>
+
+
+            </div>
+            <div>
+                <ol id="list-container">
+                    <i class="fa-solid fa-pen fa-xl"></i>
+                </ol>
+
+            </div>
+
+           
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="apps.js" type="module"></script>
+        <script src="https://kit.fontawesome.com/ac6c404332.js" crossorigin="anonymous"></script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+/* //login //signin */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+}
+
+#login-signup-form{
+    
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: 60px;
+    text-align: center;
+    font-family: 'Montserrat Alternates', sans-serif;
+    
+}
+
+h2 {
+    padding-left: 3%;
+    margin-bottom: 10px;
+}
+
+form {
+    text-align: center;
+}
+
+input{
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"],
+button {
+    width: 95%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover,
+button:hover {
+    background-color: #0056b3;
+}
+#sign-up{
+    width: 30%;
+    margin-left: 35%;
+    margin-top: 5%;
+}
+
+#user-info {
+    display: none;
+    margin-top: 20px;
+}
+
+#loggedInUser {
+    font-weight: bold;
+}
+
+.discription{
+    margin-top: 7%;
+    padding-left: 3%;
+}
+
+.main-div{
+    margin-top: 7%;
+}
+
+
+
+
+.container {
+  
+    
+    align-items: center;
+  }
+
+  .username {
+    margin: 0; 
+  }
+
+  h1 {
+    margin: 0; 
+  }
+
+
