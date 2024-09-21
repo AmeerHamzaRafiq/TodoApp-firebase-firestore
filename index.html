@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Cinzel:wght@700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Cinzel:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -21,11 +20,10 @@
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Services</a></li>
-            <li><a href="" ><button class="LogOutBtn">logout</button></a></li>
+            <li><a href="#"><button class="LogOutBtn">Logout</button></a></li>
           </ul>
         </nav>
-      </header>
-
+    </header>
 
     <div class="main-div">
         <div class="todo-apps">
@@ -33,26 +31,23 @@
             <div class="row">
                 <input class="input-box" type="text" placeholder="  Enter your text">
                 <button class="submitBtn">Add submit</button>
-
-
             </div>
             <div>
                 <ol id="list-container">
                     <i class="fa-solid fa-pen fa-xl"></i>
                 </ol>
-
             </div>
-
-           
-
         </div>
 
-        <script>
-            window.location.href = "index(Sign Up).html"; //first page executing problem solve 
-        </script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="apps.js" type="module"></script>
         <script src="https://kit.fontawesome.com/ac6c404332.js" crossorigin="anonymous"></script>
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                window.location.href = "index(Sign Up).html"; // Redirect after page load problem solve
+             });
+        </script>
     </div>
 </body>
 
