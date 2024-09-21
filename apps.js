@@ -11,10 +11,7 @@ import {
   doc, 
   updateDoc 
 } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
-
 import { auth, db } from "./confige.js";
-
-
 
 const inputBox = document.querySelector(".input-box");
 const listContainer = document.querySelector("#list-container");
@@ -28,7 +25,6 @@ onAuthStateChanged(auth, async (user) => {
     const userQuerySnapshot = await getDocs(userQuery);
 
     userQuerySnapshot.forEach((userDoc) => {
-      console.log(userDoc.data());
       document.querySelector(".user-name").innerText = userDoc.data().name;
     });
 
@@ -62,44 +58,34 @@ async function renderTasks(uid) {
 
   listContainer.appendChild(fragment);
 }
+
 function createTaskElement(task, taskId) {
-  // Create <li> element
   const li = document.createElement("li");
 
-  // Create <div> for task content
   const div = document.createElement("div");
   div.classList.add("divs");
   div.textContent = task;
 
-  // Create delete button
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("xButton");
   deleteButton.textContent = "\u00d7";
   deleteButton.addEventListener("click", async () => {
-    // Handle delete button click
     await deleteDoc(doc(db, "tasks", taskId));
-    console.log("Task deleted from Firestore");
     li.remove();
     tasksArray = tasksArray.filter((t) => t.id !== taskId);
   });
 
-  // Create update button
   const updateButton = document.createElement("button");
   updateButton.classList.add("iconBtn");
   updateButton.innerHTML = '<i class="fa-solid fa-pen fa-sm"></i>';
   updateButton.addEventListener("click", () => {
-    // Handle update button click
     updateTask(taskId, task);
   });
 
-  // Append delete and update buttons to the task <div>
   div.appendChild(deleteButton);
   div.appendChild(updateButton);
-
-  // Append the task <div> to the <li> element
   li.appendChild(div);
 
-  // Return the completed <li> element
   return li;
 }
 
@@ -116,33 +102,23 @@ async function updateTask(taskId, currentTask) {
   });
 
   if (isCancelled) {
-    // Reload the page or perform any other action on cancel
     location.reload();
     return;
   }
 
   if (updateTask) {
     try {
-      // Your update logic here
       await updateDoc(doc(db, "tasks", taskId), { task: updateTask });
-      console.log("Task updated in Firestore");
-
       const updatedTaskIndex = tasksArray.findIndex((t) => t.id === taskId);
       tasksArray[updatedTaskIndex].task = updateTask;
 
-      // Update the DOM directly
       const li = listContainer.querySelector(`[data-task-id="${taskId}"]`);
-
       if (li) {
         li.querySelector("span").innerHTML = updateTask;
       } else {
-        console.error(
-          "Error: Could not find the corresponding li element for taskId:",
-          taskId
-        );
+        console.error("Error: Could not find the corresponding li element for taskId:", taskId);
       }
 
-      // Reload the page after successful update
       Swal.fire({
         icon: 'success',
         title: 'Task Updated!',
@@ -155,9 +131,15 @@ async function updateTask(taskId, currentTask) {
   }
 }
 
-
 inputBox.addEventListener("input", () => renderTasks(auth.currentUser.uid));
 btn.addEventListener("click", addTask);
+
+// Add event listener for the Enter key
+inputBox.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    addTask();
+  }
+});
 
 async function addTask() {
   const taskText = inputBox.value.trim();
@@ -175,8 +157,6 @@ async function addTask() {
 
   try {
     const docRef = await addDoc(collection(db, "tasks"), taskObj);
-    console.log("Task written with ID: ", docRef.id);
-
     tasksArray.push({ id: docRef.id, ...taskObj });
     const li = createTaskElement(taskObj.task, docRef.id);
     listContainer.appendChild(li);
@@ -191,7 +171,6 @@ const logoutButton = document.querySelector(".LogOutBtn");
 logoutButton.addEventListener("click", () => {
   signOut(auth)
     .then(() => {
-      console.log("logout");
       window.location = "index(login).html";
     })
     .catch((error) => {
