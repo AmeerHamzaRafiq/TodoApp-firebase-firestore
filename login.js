@@ -11,7 +11,7 @@ form.addEventListener("submit", (event) => {
 .then((userCredential) => {
     const user = userCredential.user;
     console.log(user);
-    window.location = 'index.html'
+    window.location = 'Home.html'
     Swal.fire({
       position: "top-center",
       icon: "success",

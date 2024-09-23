@@ -21,11 +21,11 @@ form.addEventListener("submit", (event) => {
       password.value = "";
       email.value = "";
       setTimeout(() => {
-        window.location = "index(login).html";
+        window.location = "Home.html";
       }, 1500);
     })
     .catch((error) => {
-      // const errorCode = error.code;
+
       const errorMessage = error.message;
       Swal.fire({
         icon: "error",
